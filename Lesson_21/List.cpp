@@ -1,16 +1,30 @@
 #include "List.h"
 
-List::List() {}
-List::List(List& _source) {}
-List::~List() {
+template <typename T>
+List<T>::List() {}
+
+template <typename T>
+List<T>::List(List& _source) {
+	Node* source_current = _source.root;
+	while (source_current != nullptr)
+	{
+		push_back(source_current->value);
+		source_current = source_current->next;
+	}
+}
+
+template <typename T>
+List<T>::~List() {
 	clear();
 }
 
-bool List::empty() {
+template <typename T>
+bool List<T>::empty() {
 	return root == nullptr;
 }
 
-void List::push_back(int _value) {
+template <typename T>
+void List<T>::push_back(T _value) {
 	// Создаём новый узел с переданным значением
 	Node* new_node = new Node;
 	new_node->value = _value;
@@ -38,7 +52,17 @@ void List::push_back(int _value) {
 	}
 }
 
-void List::print() {
+template <typename T>
+int List<T>::pop_front() {
+	int result = root->value;
+	Node* current = root;
+	root = root->next;
+	delete current;
+	return result;
+}
+
+template <typename T>
+void List<T>::print() {
 	if (root == nullptr)
 		cout << "List is empty!" << endl;
 	else
@@ -53,16 +77,14 @@ void List::print() {
 	}
 }
 
-void List::clear() {
+template <typename T>
+void List<T>::clear() {
 	while (!empty())
-	{
-		Node* current = root;
-		root = root->next;
-		delete current;
-	}
+		pop_front();
 }
 
-unsigned int List::get_length() {
+template <typename T>
+unsigned int List<T>::get_length() {
 	unsigned int length = 0;
 	Node* current = root;
 	while (current != nullptr)

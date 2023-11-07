@@ -9,8 +9,8 @@ using namespace std;
 		next - ссылка на следующий узел
 */
 
-struct Node {
-	int value;
+template<typename T> struct Node {
+	T value;
 	Node* next;
 };
 
@@ -20,9 +20,9 @@ struct Node {
 
 */
 
-class List
+template<typename T> class List
 {
-	Node* root = nullptr;
+	Node<T>* root = nullptr;
 public:
 	List();
 	List(List&);
@@ -31,7 +31,12 @@ public:
 	bool empty();
 	unsigned int get_length();
 	void clear();
-	void push_back(int);
+	void push_back(T);
+	int pop_front();
 	void print();
 };
 
+/*
+	Создать метод push_front, который добавляет новый
+	элемент в начало списка.
+*/

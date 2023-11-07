@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "List.h"
 
 using namespace std;
@@ -6,7 +7,8 @@ using namespace std;
 
 int main()
 {
-    List l1;
+    List<int> l1;
+    List<string> l2;
 
     cout << "Is empty: " << l1.empty() << endl;
 
