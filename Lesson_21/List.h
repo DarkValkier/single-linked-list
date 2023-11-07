@@ -31,7 +31,7 @@ public:
 	bool empty();
 	unsigned int get_length();
 	void clear();
-	void add(int);
+	void push_back(int);
 	void print();
 };
 

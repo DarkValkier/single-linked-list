@@ -10,7 +10,7 @@ bool List::empty() {
 	return root == nullptr;
 }
 
-void List::add(int _value) {
+void List::push_back(int _value) {
 	// Создаём новый узел с переданным значением
 	Node* new_node = new Node;
 	new_node->value = _value;
