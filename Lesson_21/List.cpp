@@ -1,3 +1,4 @@
+/*
 #include "List.h"
 
 template <typename T>
@@ -26,9 +27,9 @@ bool List<T>::empty() {
 template <typename T>
 void List<T>::push_back(T _value) {
 	// Создаём новый узел с переданным значением
-	Node* new_node = new Node;
-	new_node->value = _value;
-	new_node->next = nullptr;
+	Node* new_node = new Node(_value, nullptr);
+	// new_node->value = _value;
+	// new_node->next = nullptr;
 
 	// Проверяем спискок на отсутствие элементов
 	if (empty()) {
@@ -94,3 +95,4 @@ unsigned int List<T>::get_length() {
 	}
 	return length;
 }
+*/

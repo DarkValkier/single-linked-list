@@ -9,7 +9,7 @@ int main()
 {
     List<int> l1;
     List<string> l2;
-
+    
     cout << "Is empty: " << l1.empty() << endl;
 
     l1.push_back(6);
@@ -20,5 +20,4 @@ int main()
     cout << "Length: " << l1.get_length() << endl;
     l1.clear();
     l1.print();
-
 }
