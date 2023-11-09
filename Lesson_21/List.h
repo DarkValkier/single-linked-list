@@ -110,6 +110,34 @@ public:
 			cout << endl;
 		}
 	}
+
+	void remove(T _value) {
+		while (root != nullptr && root->value == _value)
+		{
+			Node<T>* current = root;
+			root = root->next;
+
+			delete current;
+		}
+
+		Node<T>* previous = root;
+		Node<T>* current = root->next;
+		while (current != nullptr)
+		{
+			if (current->value == _value) {
+				previous->next = current->next;
+				delete current;
+				current = previous->next;
+			}
+			else
+			{
+				previous = current;
+				current = current->next;
+			}
+		}
+
+
+	}
 };
 
 /*
